@@ -2,12 +2,9 @@
 
 void free(void *ptr)
 {
-    t_block     *curr;
-
-    if (valid pointer)
+    if (ptr)
     {
-        curr = ptr;
-        curr--;
-        curr->is_free = TRUE;
+        ptr = ptr - sizeof(t_block);
+        ptr->is_free = true;
     }
 }
