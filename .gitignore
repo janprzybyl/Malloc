@@ -1,3 +1,4 @@
 libft_malloc_$HOSTTYPE.so
 *.o
 srcs/test.c
+test
