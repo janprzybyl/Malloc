@@ -5,6 +5,6 @@ void free(void *ptr)
     if (ptr)
     {
         ptr = ptr - sizeof(t_block);
-        ptr->is_free = true;
+        ((t_block *)ptr)->is_free = true;
     }
 }

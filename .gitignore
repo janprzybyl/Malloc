@@ -1,4 +1,6 @@
 libft_malloc_$HOSTTYPE.so
+libft_malloc_OSTTYPE.so
+
 *.o
 srcs/test.c
 test

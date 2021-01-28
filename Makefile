@@ -2,12 +2,16 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft_malloc_$HOSTTYPE.so
 HEADERS = includes/
-SRCS = srcs
+SRCS = srcs/malloc.c \
+		srcs/create_blocks.c \
+		srcs/find_free_block.c \
+		srcs/merge_heaps.c \
+		srcs/free.c
 
 $(NAME): all
  
 all: 
-	@$(CC) -c $(CFLAGS) -I $(HEADERS) $(SRCS)/malloc.c 
+	@$(CC) -c $(CFLAGS) -I $(HEADERS) $(SRCS)
 	@ar -rc $(NAME) *.o
 	@echo "\033[32m$(NAME) built!\033[0m"
 
