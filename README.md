@@ -4,7 +4,7 @@
 
 This project is about implementing a dynamic memory allocation mechanism.
 
-![]()
+![](carbon.png)
 
 
 # Mechanism
