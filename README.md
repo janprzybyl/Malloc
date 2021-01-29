@@ -1,4 +1,4 @@
-Currently working on it...
+###### Currently working on it...
 
 # Malloc
 
@@ -15,4 +15,4 @@ Our library contains implementation of functions I mentioned before:
   - `free`
   - `realloc`
 
-<br/>:bulb: To better understand this project check *malloc.pdf* file
+###### <br/>:bulb: To better understand this project check *malloc.pdf* file
