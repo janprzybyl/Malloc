@@ -1,4 +1,5 @@
 #include "malloc.h"
+#include <stdio.h>
 
 void *find_free_block(t_block *heap, size_t size)
 {
