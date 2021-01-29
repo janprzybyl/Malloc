@@ -11,6 +11,7 @@ void create_blocks(size_t heap_size, void *heap, size_t block_size)
     temp = heap;
     while (i < (heap_size - block_size))
     {
+        ((t_block *)temp)->size = 0;
         ((t_block *)temp)->is_free = true;
         ((t_block *)temp)->next = temp + block_size;
 

@@ -3,10 +3,12 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = libft_malloc_$HOSTTYPE.so
 HEADERS = includes/
 SRCS = srcs/malloc.c \
+		srcs/free.c \
+		srcs/realloc.c \
 		srcs/create_blocks.c \
 		srcs/find_free_block.c \
 		srcs/merge_heaps.c \
-		srcs/free.c
+		srcs/ret_mem_block.c
 
 $(NAME): all
  

@@ -2,48 +2,33 @@
 
 void *realloc(void *ptr, size_t size)
 {
-    void    *ptr;
+    t_block     *temp;
 
-    if ((size_t)TINY_BLOCK_SIZE >= size)
+    temp = ptr - sizeof(t_block);
+    if (size <= (size_t)TINY_BLOCK_SIZE)
     {
-        if (ptr_is_tiny)
-            do nothing
-        else if (ptr_is_small)
+        if (temp->size > (size_t)TINY_BLOCK_SIZE)
         {
             free(ptr);
-            ptr = start(tiny, TINY_HEAP_TOTAL_SIZE, TINY_BLOCK_SIZE);
-            return (ptr);
+            ptr = ret_tiny_block(size);
         }
-        else
-        {
-            // function will call return_large I guess
-            large = mmap(NULL, getpagesize(), PROT_READ | PROT_WRITE,
-                        MAP_PRIVATE | MAP_ANON, -1, 0);
-            // add to linked list which keeps track of large heaps
-            ptr = large;
-        }    
     }
-    else if (size > TINY_BLOCK_SIZE && size <= SMALL_BLOCK_SIZE)
+    else if (size > (size_t)TINY_BLOCK_SIZE && size <= (size_t)SMALL_BLOCK_SIZE)
     {
-        if (ptr_is_tiny)
-            do nothing
-        else if (ptr_is_small)
+        if (temp->size < (size_t)SMALL_BLOCK_SIZE || temp->size > (size_t)SMALL_BLOCK_SIZE)
         {
             free(ptr);
-            ptr = start(tiny, TINY_HEAP_TOTAL_SIZE, TINY_BLOCK_SIZE);
-            return (ptr);
-        }
-        else
-        {
-            // function will call return_large I guess
-            large = mmap(NULL, getpagesize(), PROT_READ | PROT_WRITE,
-                        MAP_PRIVATE | MAP_ANON, -1, 0);
-            // add to linked list which keeps track of large heaps
-            ptr = large;
-        }            
+            ptr = ret_small_block(size);
+        }         
     }
-    else (size > SMALL_BLOCK_SIZE)
+    else
     {
-
+        if (temp->size < (size_t)LARGE_HEAP_SIZE) 
+        {
+            free(ptr);
+            ptr =  ret_large_block();
+        }
     }   
+
+    return (ptr);
 }
