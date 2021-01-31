@@ -4,11 +4,10 @@ NAME = libft_malloc_$HOSTTYPE.so
 HEADERS = includes/
 SRCS = srcs/malloc.c \
 		srcs/free.c \
-		srcs/realloc.c \
-		srcs/create_blocks.c \
-		srcs/find_free_block.c \
-		srcs/merge_heaps.c \
-		srcs/ret_mem_block.c
+		srcs/utils/create_blocks.c \
+		srcs/utils/find_free_block.c \
+		srcs/utils/merge_heaps.c \
+		srcs/utils/ret_mem_block.c\
 
 $(NAME): all
  
