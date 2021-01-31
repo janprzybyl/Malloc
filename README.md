@@ -1,8 +1,10 @@
-Currently working on it...
+###### Currently working on it...
 
 # Malloc
 
 This project is about implementing a dynamic memory allocation mechanism.
+
+![](carbon.png)
 
 
 # Mechanism
@@ -11,8 +13,9 @@ The last function is called **realloc**. It changes size of allocated memory, pr
 
 # General
 Our library contains implementation of functions I mentioned before:
-  - `malloc`
-  - `free`
-  - `realloc`
+  - [x] `malloc`
+  - [x] `free`
+  - [x] `realloc`
+  - [ ] `show_alloc_mem`
 
-<br/>:bulb: To better understand this project check *malloc.pdf* file
+###### <br/>:bulb: To better understand this project check *malloc.pdf* file
