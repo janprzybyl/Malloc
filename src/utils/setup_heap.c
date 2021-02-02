@@ -1,4 +1,5 @@
 #include "malloc.h"
+#include <stdio.h>
 
 void *setup_heap(size_t heap_size, size_t block_size)
 {
@@ -16,11 +17,17 @@ void *setup_heap(size_t heap_size, size_t block_size)
         ((t_block *)temp)->size = 0;
         ((t_block *)temp)->is_free = true;
         ((t_block *)temp)->next = temp + block_size;
+        ((t_block *)temp)->heap = heap;
 
         i = i + block_size;
         temp = temp + block_size;
     }
+    ((t_block *)temp)->size = 0;
+    ((t_block *)temp)->is_free = true;
     ((t_block *)temp)->next = NULL;     // indicate end of heap
+    ((t_block *)temp)->heap = heap;
+    
+    ((t_heap *)heap)->heap_size = heap_size;
     ((t_heap *)heap)->used_blocks = 0;
 
     return (heap);

@@ -23,12 +23,15 @@ int main()
     str3 = malloc(sizeof(char) * 35);
     strcpy(str3, "HELLO_WORLD_3");
     printf("%s at address %p\n", str3, str3);
-    str4 = malloc(sizeof(char) * 3225);
+    str4 = malloc(sizeof(char) * 15);
     strcpy(str4, "HELLO_WORLD_4");
     printf("%s at address %p\n", str4, str4);
-    str5 = malloc(sizeof(char) * 35);
+    str5 = malloc(sizeof(char) * 999);
     strcpy(str5, "HELLO_WORLD_5");
     printf("%s at address %p\n", str5, str5);
+    // free(str5);
+    // free(str4);
+    // free(str3);
     str6 = malloc(sizeof(char) * 35);
     strcpy(str6, "HELLO_WORLD_6");
     printf("%s at address %p\n", str6, str6);
@@ -39,7 +42,7 @@ int main()
     str8 = malloc(sizeof(char) * 35);
     strcpy(str8, "HELLO_WORLD_8");
     printf("%s at address %p before realloc\n", str8, str8);
-    // str8 = realloc(str8, 50);
+    // str8 = realloc(str8, 100);
     printf("%s at address %p after realloc\n", str8, str8);
     str9 = malloc(sizeof(char) * 35);
     strcpy(str9, "HELLO_WORLD_9");
