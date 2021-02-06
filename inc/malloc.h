@@ -1,10 +1,11 @@
 #ifndef _MALLOC_H_
 #define _MALLOC_H_
 
-#include <sys/mman.h>                       // mmap()
+#include <sys/mman.h>                       // mmap(), munmap()
 #include <stdlib.h>
 #include <stdbool.h>                        // bool
 #include <unistd.h>                         // getpagesize()
+#include "../Libft/includes/libft.h"
 
 typedef struct          s_block
 {
@@ -43,8 +44,5 @@ void *realloc(void *ptr, size_t size);
 void *ret_mem_block(t_heap **heap, size_t heap_size, size_t block_size, size_t size);
 void *find_free_block(t_heap *heap, size_t size);
 void *setup_heap(size_t heap_size, size_t block_size);
-// void *ret_tiny_block(size_t size);
-// void *ret_small_block(size_t size);
-// void *ret_large_block(size_t size);
 
 #endif

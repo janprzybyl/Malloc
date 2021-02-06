@@ -1,29 +1,43 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-NAME = libft_malloc_$HOSTTYPE.so
-HEADERS = inc/
-SRC = src/malloc.c \
-		src/free.c \
-		src/utils/setup_heap.c \
-		src/utils/find_free_block.c \
-		src/utils/merge_heaps.c \
-		src/utils/ret_mem_block.c\
+ifeq ($(HOSTTYPE),)
+	HOSTTYPE := $(shell uname -m)_$(shell uname -s)
+endif
 
-$(NAME): all
- 
-all: 
-	@$(CC) -c $(CFLAGS) -I $(HEADERS) $(SRC)
-	@ar -rc $(NAME) *.o
+CC 			= gcc
+CFLAGS 		= -Wall -Wextra -Werror -fPIC -c 
+NAME 		= libft_malloc_$(HOSTTYPE).so
+SLINK 		= libft_malloc.so
+SRCS 		= src/malloc.c \
+			  src/free.c \
+			  src/realloc.c \
+			  src/utils/setup_heap.c \
+			  src/utils/find_free_block.c \
+			  src/utils/ret_mem_block.c
+OBJS 		= $(SRCS:.c=.o)
+
+all: $(NAME)
+  
+%.o: %.c
+	@$(CC) $(CFLAGS) $^ -o $@ -I inc/ 
+
+$(NAME): $(OBJS)
+	@make -C Libft
+	@$(CC) -shared -o $@ $^ Libft/libft.a
+	@rm -f $(SLINK)
+	@ln -s $@ $(SLINK)		
 	@echo "\033[32m$(NAME) built!\033[0m"
 
 test:
-	@gcc src/test.c -L. $(NAME) -o test
+	@gcc src/test.c -L. $(SLINK) -o $@
+	@echo "\033[32mtest built!\033[0m"
+	@./test
 
 clean:
-	@rm *.o 
+	@make -C Libft clean
+	@/bin/rm -rf $(OBJS)
 
-fclean:
-	@rm $(NAME) a.out *.o test
+fclean: clean
+	@make -C Libft fclean
+	@/bin/rm -rf $(NAME) test
 
 re: fclean all
 

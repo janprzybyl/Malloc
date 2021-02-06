@@ -45,7 +45,6 @@ void *malloc(size_t size)
         ptr = ret_mem_block(&large, LARGE_HEAP_SIZE, LARGE_BLOCK_SIZE, size);
             int y = 0;
     t_heap *temp_large = large;
-    // printf("tiny after = %p\n", temp_large);
     while (temp_large)
     {
         printf("large nr %d\n", y);
