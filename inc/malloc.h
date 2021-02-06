@@ -39,7 +39,7 @@ extern t_heap     *large;
 void *malloc(size_t size);
 void free(void *ptr);
 void *realloc(void *ptr, size_t size);
-// void show_alloc_mem()
+void show_alloc_mem();
 
 void *ret_mem_block(t_heap **heap, size_t heap_size, size_t block_size, size_t size);
 void *find_free_block(t_heap *heap, size_t size);

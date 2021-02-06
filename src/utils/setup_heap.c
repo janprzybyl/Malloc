@@ -1,5 +1,4 @@
 #include "malloc.h"
-#include <stdio.h>
 
 static void init_block(t_heap *heap, t_block *block)
 {

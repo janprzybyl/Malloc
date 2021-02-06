@@ -1,5 +1,4 @@
 #include "malloc.h"
-#include <stdio.h>
 
 void *ret_mem_block(t_heap **heap, size_t heap_size, size_t block_size, size_t size)
 {

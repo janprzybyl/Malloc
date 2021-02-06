@@ -9,6 +9,7 @@ SLINK 		= libft_malloc.so
 SRCS 		= src/malloc.c \
 			  src/free.c \
 			  src/realloc.c \
+			  src/show_alloc_mem.c \
 			  src/utils/setup_heap.c \
 			  src/utils/find_free_block.c \
 			  src/utils/ret_mem_block.c

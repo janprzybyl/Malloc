@@ -45,11 +45,19 @@ int main()
     str8 = malloc(sizeof(char) * 35);
     strcpy(str8, "HELLO_WORLD_8");
     printf("%s at address %p before realloc\n\n", str8, str8);
-    str8 = realloc(str8, 100);
+    // str8 = realloc(str8, 100);
     printf("%s at address %p after realloc\n\n", str8, str8);
     str9 = malloc(sizeof(char) * 35);
     strcpy(str9, "HELLO_WORLD_9");
     printf("%s at address %p\n\n", str9, str9);
+    show_alloc_mem();
+    free(str);
+    free(str2);
+    free(str3);
+    free(str5);
+    free(str7);
+    free(str8);
+    free(str9);
 
     return (0);
 }

@@ -1,6 +1,6 @@
-libft_malloc_$(HOSTTYPE).so
+libft_malloc_x86_64_Darwin.so
 libft_malloc.so
 
 *.o
-srcs/test.c
+src/test.c
 test
