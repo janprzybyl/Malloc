@@ -13,9 +13,9 @@ The last function is called **realloc**. It changes size of allocated memory, pr
 
 # General
 Our library contains implementation of functions I mentioned before:
-  - [x] `malloc`
-  - [x] `free`
-  - [x] `realloc`
-  - [ ] `show_alloc_mem`
+  - `malloc`
+  - `free`
+  - `realloc`
+  - `show_alloc_mem`
 
 ###### <br/>:bulb: To better understand this project check *malloc.pdf* file
